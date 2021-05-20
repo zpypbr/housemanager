@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">房租管家</string>
+    <string name="action_item_newhouse">新增房屋</string>
+    <string name="action_item_save">保存</string>
+</resources>

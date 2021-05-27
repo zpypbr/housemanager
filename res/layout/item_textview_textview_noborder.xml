@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal" >
 
     <TextView
@@ -10,6 +10,7 @@
         android:layout_height="35.0dip"
         android:layout_marginLeft="12.0dip"
         android:paddingTop="8.0dip"
+        android:text="押金"
         android:textColor="@color/BlueSky"
         android:textSize="14.0dip" />
 
@@ -23,6 +24,7 @@
         android:gravity="right"
         android:paddingTop="8.0dip"
         android:singleLine="true"
+        android:text="$0.00"
         android:textColor="@color/Black"
         android:textSize="14.0dip" />
 

@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_newhouse"
+        android:icon="@null"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="新增房屋" />
 
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/menu"
         android:orderInCategory="100"
-        android:title="@null"
-        android:showAsAction="always">
+        android:showAsAction="always"
+        android:title="@null">
         <menu>
             <item
-                android:id="@+id/action_item_newhouse"
+                android:id="@+id/action_item_allhouse"
                 android:icon="@drawable/template"
                 android:showAsAction="withText"
-                android:title="@string/action_item_newhouse"/>
+                android:title="全部房屋" />
+
+            <item
+                android:id="@+id/action_item_yzhouse"
+                android:icon="@drawable/template"
+                android:showAsAction="withText"
+                android:title="已租房屋" />
+
+            <item
+                android:id="@+id/action_item_wzhouse"
+                android:icon="@drawable/template"
+                android:showAsAction="withText"
+                android:title="未租房屋" />
+
+            <item
+                android:id="@+id/action_item_szhouse"
+                android:icon="@drawable/template"
+                android:showAsAction="withText"
+                android:title="收租房屋" />
         </menu>
     </item>
 

@@ -7,6 +7,7 @@
 
     <ImageView
         android:id="@+id/imgHeader"
+        android:src="@drawable/house_yellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10.0dip" />
@@ -23,6 +24,7 @@
             android:paddingLeft="10.0dip"
             android:paddingTop="5.0dip"
             android:textColor="@color/Black"
+            android:text="房屋闲置没有账单"
             android:textSize="18.0dip" />
 
         <TextView
@@ -31,6 +33,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10.0dip"
             android:textColor="@color/Gray"
+            android:text="房屋闲置没有账单"
             android:textSize="12.0dip" />
     </LinearLayout>
 

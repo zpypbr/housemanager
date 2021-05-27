@@ -36,7 +36,7 @@
             android:textSize="14.0dip" />
 
         <EditText
-            android:id="@+id/textViewHouseName"
+            android:id="@+id/editTextHouseName"
             android:layout_width="fill_parent"
             android:layout_height="35.0dip"
             android:background="@drawable/gray_rectangle_selector"
@@ -70,7 +70,7 @@
             android:textSize="14.0dip" />
 
         <EditText
-            android:id="@+id/textHouseNo"
+            android:id="@+id/editTextHouseNum"
             android:layout_width="fill_parent"
             android:layout_height="35.0dip"
             android:layout_marginTop="3.0dip"

@@ -36,6 +36,8 @@
             android:label="@string/action_item_newhouse"
             android:screenOrientation="portrait" >
         </activity>
+
+        <service android:name=".com.geek.house.db.CustomerDB" />
     </application>
 
 </manifest>

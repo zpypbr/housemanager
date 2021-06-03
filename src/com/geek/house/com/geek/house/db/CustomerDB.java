@@ -3,6 +3,7 @@ package com.geek.house.com.geek.house.db;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.IBinder;
@@ -25,6 +26,18 @@ public class CustomerDB {
         db.close();
     }
 
+    public Customer getCustomer(String customerId) {
+        SQLiteDatabase db = mHelper.getReadableDatabase();
+        Customer customer = new Customer();
+        Cursor c = db.rawQuery("select * from " + TABLENAME + "where id = ?", new String[]{customerId});
+        while (c.moveToFirst()) {
+            customer.setId(customerId);
+            customer.setName(c.getString(c.getColumnIndex("name")));
+            customer.setPhoneNumber(c.getString(c.getColumnIndex("phone")));
+        }
+        return customer;
+    }
+
     private class CustomerHelper extends SQLiteOpenHelper {
         public CustomerHelper(Context context) {
             super(context, DBNAME, null, 1);
@@ -33,7 +46,7 @@ public class CustomerDB {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE table IF NOT EXISTS " + TABLENAME +
-                    " ( _id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, name TEXT, phone TEXT)");
+                    " ( _id INTEGER PRIMARY KEY AUTOINCREMENT, id TEXT, name TEXT, phone TEXT)");
         }
 
         @Override

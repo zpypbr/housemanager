@@ -13,6 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.geek.house.com.geek.house.db.Customer;
+import com.geek.house.com.geek.house.db.CustomerDB;
 import com.geek.house.com.geek.house.db.House;
 import com.geek.house.com.geek.house.db.HouseDB;
 
@@ -22,6 +24,8 @@ public class MainActivity extends Activity {
     private ListView mHouseList;
     private MyAdapter mMyAdapter;
     private HouseDB mHouseDb;
+    private CustomerDB mCustomerDB;
+
     private enum HOUSE_TYPE {ALL_HOUSE, YZ_HOUSE, WZ_HOUSE, SZ_HOUSE};
 
     @Override
@@ -29,6 +33,7 @@ public class MainActivity extends Activity {
         super.onCreate(paramBundle);
         setContentView(R.layout.activity_main);
         mHouseDb = new HouseDB(this);
+        mCustomerDB = new CustomerDB(this);
         mMyAdapter = new MyAdapter(this);
         mMyAdapter.setFilter(HOUSE_TYPE.WZ_HOUSE);
         mHouseList = (ListView) findViewById(R.id.listViewHouse);
@@ -73,7 +78,7 @@ public class MainActivity extends Activity {
         }
 
         private void setFilter(HOUSE_TYPE type) {
-            switch (type){
+            switch (type) {
                 case ALL_HOUSE:
                     mHoustList = mHouseDb.getAllHouse();
                     break;
@@ -112,7 +117,7 @@ public class MainActivity extends Activity {
                 holder.title = (TextView) convertView.findViewById(R.id.textViewTitle);
                 holder.subTitle = (TextView) convertView.findViewById(R.id.textViewSubTitle);
                 convertView.setTag(holder);
-            } else{
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
             fillView(position, holder);
@@ -121,6 +126,31 @@ public class MainActivity extends Activity {
 
         private void fillView(int position, ViewHolder holder) {
             holder.title.setText(mHoustList.get(position).getName());
+            if (mHoustList.get(position).getCustomer() == null) {
+                holder.subTitle.setText("尚未出租，点击添加租客信息。");
+            } else {
+                String customerId = mHoustList.get(position).getCustomer();
+                Customer customer = mCustomerDB.getCustomer(customerId);
+                long date = customer.getRentalDate();
+                if ((date == 6570L) || (date == 2920L)) {
+                    holder.subTitle.setText("没有未收账单");
+                    return;
+                }
+                if (date > 7L) {
+                    holder.subTitle.setText("●距离收租日还有" + date + "天");
+                    return;
+                }
+                if (date > 0L) {
+                    holder.subTitle.setText("●距离收租日还有" + date + "天");
+                    return;
+                }
+                if (date == 0L) {
+                    holder.subTitle.setText("●今日收租");
+                    return;
+                }
+                long l2 = 0L - date;
+                holder.subTitle.setText("●收租日已过" + l2 + "天");
+            }
         }
     }
 

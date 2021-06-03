@@ -9,6 +9,10 @@ public class House {
     private String number;
     private String customer;
 
+    public House() {
+
+    }
+
     public String getId() {
         return id;
     }

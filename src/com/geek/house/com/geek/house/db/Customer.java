@@ -13,6 +13,7 @@ public class Customer {
     private String phone;
     private long leaseTime;
     private long rentalDate;
+    public static String NULL_CUSTOMER = "CUSTOM_00000";
 
     public Customer() {
         Calendar localCalendar = Calendar.getInstance();
@@ -25,16 +26,16 @@ public class Customer {
     private void createId() {
         long l1 = System.currentTimeMillis();
         String str = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date(l1));
-        long l2 = 10000 + (int)(90000.0D * Math.random());
+        long l2 = 10000 + (int) (90000.0D * Math.random());
         id = "CUSTOM_" + String.valueOf(l2);
     }
 
     public void setName(String name) {
-
+        this.name = name;
     }
 
     public void setPhoneNumber(String number) {
-
+        this.phone = number;
     }
 
     public String getUserId() {
@@ -50,7 +51,7 @@ public class Customer {
     }
 
     public long getRentalDate() {
-        return  rentalDate;
+        return rentalDate;
     }
 
     public long getLeaseTime() {

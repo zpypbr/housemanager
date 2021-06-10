@@ -126,7 +126,7 @@ public class MainActivity extends Activity {
 
         private void fillView(int position, ViewHolder holder) {
             holder.title.setText(mHoustList.get(position).getName());
-            if (mHoustList.get(position).getCustomer() == null) {
+            if (mHoustList.get(position).getCustomer() == Customer.NULL_CUSTOMER) {
                 holder.subTitle.setText("尚未出租，点击添加租客信息。");
             } else {
                 String customerId = mHoustList.get(position).getCustomer();

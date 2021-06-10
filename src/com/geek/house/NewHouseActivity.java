@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.geek.house.com.geek.house.db.Customer;
 import com.geek.house.com.geek.house.db.House;
 import com.geek.house.com.geek.house.db.HouseDB;
 
@@ -30,10 +31,9 @@ public class NewHouseActivity extends Activity {
 
     private void saveHouse() {
         House house = new House();
-        house.setHouseId("0012");
-        house.setHouseName("AA");
-        house.setHouseNum("a102");
-        house.setCustomer("a102");
+        house.setHouseName(mHouseName.getText().toString());
+        house.setHouseNum(mHouseNum.getText().toString());
+        house.setCustomer(Customer.NULL_CUSTOMER);
         mHouseDB.addHouse(house);
     }
 

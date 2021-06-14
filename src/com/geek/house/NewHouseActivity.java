@@ -6,9 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.geek.house.com.geek.house.db.Customer;
-import com.geek.house.com.geek.house.db.House;
-import com.geek.house.com.geek.house.db.HouseDB;
+import com.geek.house.db.House;
+import com.geek.house.db.HouseDB;
 
 public class NewHouseActivity extends Activity {
     private HouseDB mHouseDB;
@@ -33,7 +32,6 @@ public class NewHouseActivity extends Activity {
         House house = new House();
         house.setHouseName(mHouseName.getText().toString());
         house.setHouseNum(mHouseNum.getText().toString());
-        house.setCustomer(Customer.NULL_CUSTOMER);
         mHouseDB.addHouse(house);
     }
 

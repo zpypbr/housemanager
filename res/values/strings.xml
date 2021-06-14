@@ -3,4 +3,6 @@
     <string name="app_name">房租管家</string>
     <string name="action_item_newhouse">新增房屋</string>
     <string name="action_item_save">保存</string>
+    <string name="action_item_newcustomer">新增租客</string>
+    <string name="action_item_houseinfo">房屋信息</string>
 </resources>
